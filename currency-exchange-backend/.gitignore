@@ -1,0 +1,33 @@
+# Laravel default
+/vendor/
+/node_modules/
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+.env
+.env*.backup
+.phpunit.cache
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+
+# Build assets (if using Vite)
+/public/build
+
+# IDE specific
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
+
+# Custom (optional)
+/auth.json
+*.sqlite
+*.sqlite-journal
+*.log
+*.cache
+.DS_Store
