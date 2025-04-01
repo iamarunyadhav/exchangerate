@@ -1,23 +1,33 @@
-/.phpunit.cache
-/currency-exchange-backend/node_modules
-/currency-exchange-backend/public/build
+# Laravel default
+/vendor/
+/node_modules/
 /public/hot
-/currency-exchange-backend/public/storage
-/currency-exchange-backend/storage/*.key
-/currency-exchange-backend/storage/pail
-/currency-exchange-backend/vendor
+/public/storage
+/storage/*.key
+/storage/pail
 .env
-.env.backup
-.env.production
-.phpactor.json
+.env*.backup
+.phpunit.cache
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-/auth.json
+
+# Build assets (if using Vite)
+/public/build
+
+# IDE specific
 /.fleet
 /.idea
 /.nova
 /.vscode
 /.zed
+
+# Custom (optional)
+/auth.json
+*.sqlite
+*.sqlite-journal
+*.log
+*.cache
+.DS_Store

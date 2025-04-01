@@ -1,12 +1,11 @@
 # **💰 Currency Exchange Rate Management API**  
 
-## **📚 Introduction**  
+## **📖 Introduction**  
 This is a **Laravel 12** and **Vue 3**-based application that fetches, stores, and manages **USD to LKR exchange rates** using an external API. It supports:  
 - **Automatic rate fetching & storage**
 - **Manual rate entry**
 - **Filtering/searching by date and currency**
 - **Historical average rates for the last 7 days**
-- **User authentication & authorization**
 - **RESTful API for frontend integration**
 
 ---
@@ -29,12 +28,25 @@ Ensure your system meets the following requirements before setting up the projec
 
 ---
 
+## **🛠️ Getting Started**  
+Follow these instructions to set up and run the project locally.  
+
+### **📌 Prerequisites**  
+Ensure you have the following installed:  
+- **Git**  
+- **PHP 8.2**  
+- **Composer**  
+- **Node.js & NPM**  
+- **MySQL or PostgreSQL**  
+
+---
+
 ## **💚 Cloning the Repository**  
 Clone this repository to your local machine and navigate into the project directory:  
 
 ```sh
 # Clone the repository
-git clone https://bitbucket.org/realpixelstech/currency-exchange-rate.git
+git git clone https://Realpixels_Mart@bitbucket.org/realpixelstech/currency-exchange-rate.git
 cd currency-exchange-backend
 ```
 
@@ -42,10 +54,10 @@ cd currency-exchange-backend
 
 ## **⚙️ Backend Setup (Laravel 12)**  
 
-### **1️⃣ Configure the Database**  
+### **1⃣ Configure the Database**  
 Create a new database (e.g., **exchange_rates_db**).  
 
-### **2️⃣ Set Up Environment Variables**  
+### **2⃣ Set Up Environment Variables**  
 Copy the `.env.example` file and rename it to `.env`:  
 ```sh
 cp .env.example .env
@@ -61,22 +73,19 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-### **3️⃣ Install Dependencies**  
+### **3⃣ Install Dependencies**  
 ```sh
 composer install
 ```
 
-### **4️⃣ Generate Application Key**  
+### **4⃣ Generate Application Key**  
 ```sh
 php artisan key:generate
 ```
 
-### **5️⃣ Run Migrations & Seeders**  
+### **5⃣ Run Migrations & Seeders**  
 ```sh
 php artisan migrate --seed
-```
-```sh
-php artisan db:seed --class=ExchangeRateSeeder
 ```
 
 ---
@@ -94,17 +103,17 @@ By default, the API will be available at:
 
 ## **🎨 Frontend Setup (Vue 3)**  
 
-### **1️⃣ Navigate to the frontend directory**  
+### **1⃣ Navigate to the frontend directory**  
 ```sh
 cd frontend
 ```
 
-### **2️⃣ Install Dependencies**  
+### **2⃣ Install Dependencies**  
 ```sh
 npm install
 ```
 
-### **3️⃣ Run the Development Server**  
+### **3⃣ Run the Development Server**  
 ```sh
 npm run dev
 ```
@@ -113,22 +122,19 @@ By default, the frontend will be available at:
 
 ---
 
-## **⚙️ Updated API Endpoints**  
+## **🛠️ API Endpoints**  
 
-### **1️⃣ Fetch Latest Exchange Rates**  
-**GET /api/exchange-rate/latest**  
+### **1⃣ Fetch Latest Exchange Rates**  
+**GET /api/current-rate** 
+**GET /api/current-rate/{{currency}}?{{date}}** 
 Fetches the most recent USD to LKR exchange rate.  
 
-### **2️⃣ Get Exchange Rate for a Specific Date**  
-**GET /api/exchange-rate/{currency}/{date}**  
-Fetches exchange rates for a given currency and date.  
+### **2⃣ Get Exchange Rate for the Last 7 Days**  
+**GET /api/{{currency}}/last-seven-days**  
+Fetches historical exchange rates from **7 days before** the selected date and wekkly average .  
 
-### **3️⃣ Get Exchange Rate for the Last 7 Days**  
-**GET /api/exchange-rate/{currency}/last-seven-days**  
-Fetches historical exchange rates from **7 days before** the selected date and includes the weekly average.  
-
-### **4️⃣ Store a Manual Exchange Rate**  
-**POST /api/exchange-rate/manual**  
+### **3⃣ Store a Manual Exchange Rate**  
+**POST /api/manual-rate**  
 ```json
 {
     "base_currency": "USD",
@@ -137,39 +143,28 @@ Fetches historical exchange rates from **7 days before** the selected date and i
     "date": "2025-03-24"
 }
 ```
-
-### **5️⃣ User Registration**  
-**POST /api/auth/register**  
+### **1⃣ user register**  
+**POST /api/register** 
 ```json
 {
   "name": "John Doe",
-  "email": "john@example.com",
-  "password": "securepassword"
+  "email": "john@example.com"
 }
 ```
 
-### **6️⃣ User Login**  
-**POST /api/auth/login**  
+### **1⃣ user login**  
+**POST /api/login** 
 ```json
 {
-  "email": "john@example.com",
-  "password": "securepassword"
+  "email": "john@example.com"
 }
 ```
-
-### **7️⃣ Fetch Authenticated User Details**  
-**GET /api/auth/user**  
-Requires authentication token to fetch user details.  
-
-### **8️⃣ Logout User**  
-**POST /api/auth/logout**  
-Logs out the authenticated user.  
 
 ---
 
 ## **🧪 Running Tests**  
 
-### **1️⃣ Set Up a Test Database**  
+### **1⃣ Set Up a Test Database**  
 In `.env.testing`, configure a separate database:  
 ```env
 DB_CONNECTION=mysql
@@ -178,21 +173,15 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-### **2️⃣ Run Migrations for Testing**  
+### **2⃣ Run Migrations for Testing**  
 ```sh
 php artisan migrate --env=testing
 ```
 
-### **3️⃣ Execute Feature Tests**  
+### **3⃣ Execute Feature Tests**  
 ```sh
 php artisan test
 ```
-
----
-
-## **📝 API Documentation**  
-Detailed API documentation is available in the **Postman Collection**.  
-🔗 **[API Docs](https://documenter.postman.com/preview/24328222-f8ef6e52-3205-4da0-b900-3dd4993eac51)**  
 
 ---
 
@@ -210,14 +199,10 @@ Detailed API documentation is available in the **Postman Collection**.
 Detailed API documentation is available in the **Postman Collection**.  
 🔗 **[API Docs](https://documenter.postman.com/preview/24328222-f8ef6e52-3205-4da0-b900-3dd4993eac51?environment=24328222-91554aaf-20fa-484a-beb9-704ff4329fba&versionTag=latest&apiName=CURRENT&version=latest&documentationLayout=classic-double-column&documentationTheme=light&logo=https%3A%2F%2Fres.cloudinary.com%2Fpostman%2Fimage%2Fupload%2Ft_team_logo%2Fv1%2Fteam%2Fanonymous_team&logoDark=https%3A%2F%2Fres.cloudinary.com%2Fpostman%2Fimage%2Fupload%2Ft_team_logo%2Fv1%2Fteam%2Fanonymous_team&right-sidebar=303030&top-bar=FFFFFF&highlight=FF6C37&right-sidebar-dark=303030&top-bar-dark=212121&highlight-dark=FF6C37)**  
 
-## **📖 SERVER APP**  
-Live server Link
-**https://exchangerateui.netlify.app/**
-
 ---
 
 ## **👨‍💻 Author**  
 **Arun Pragash Alwar**  
 ---
-Bitbucket: []**(https://bitbucket.org/realpixelstech/currency-exchange-rate/src/main/)**
+Bitbucket: [](https://bitbucket.org/realpixelstech/currency-exchange-rate/src/main/)
 
